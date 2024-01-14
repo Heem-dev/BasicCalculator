@@ -20,8 +20,14 @@ div.calculator {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     margin-bottom: 10px;
+
 }
 
+#result{
+    font-size: 1.5rem;
+    
+
+}
 .buttons{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -30,4 +36,12 @@ div.calculator {
     width: 25em;
 
     font-size: 100%;
+}
+
+#clear{
+    grid-column: 1 / span 2;
+}
+
+#clearOne{
+    grid-column: 3 / span 2;
 }
