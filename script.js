@@ -128,3 +128,74 @@ clearOne.addEventListener("click", () => {
 
     }
 });
+
+// add event listener to keyboard for numbers.
+document.addEventListener("keydown", (e) => {
+    if (e.key >= 0 && e.key <= 9) {
+        result.value += e.key;
+    }
+});
+
+// add event listener to keyboard for operators.
+document.addEventListener("keydown", (e) => {
+    if (e.key === "*" || e.key === "/" || e.key === "+" || e.key === "-") {
+        if (result.value !== "" && !operatorClicked) {
+            currentOperator = e.key;
+            operatorClicked = true;
+            result.value += e.key;
+        }
+    }
+});
+
+        // add event listener to backspace key for clearOne.
+document.addEventListener("keydown", (e) => { 
+    if (e.key === "Backspace") {
+        if (result.value !== "") {
+            let lastDigit = result.value[result.value.length - 1];
+            // console.log(lastDigit);
+
+            // check if last digit is an operator.
+            if (lastDigit === "*" || lastDigit === "/" || lastDigit === "+" || lastDigit === "-") {
+                currentOperator = "";
+                operatorClicked = false;
+
+                // remove last digit.
+                result.value = result.value.slice(0, -1);
+            }
+            else {
+                // remove last digit.
+                result.value = result.value.slice(0, -1);
+
+            }
+
+        }
+    }
+});
+
+// add event listener to keyboard for decimal.
+document.addEventListener("keydown", (e) => {
+    if (e.key === ".") {
+        if (result.value !== "") {
+            result.value += e.key;
+
+        }
+    }
+});
+
+// add event listener to keyboard for clear.
+document.addEventListener("keydown", (e) => {
+    if (e.key === "c" || e.key === "C" || e.key === "Delete") {
+        result.value = "";
+        operatorClicked = false;
+        currentOperator = "";
+
+    }
+});
+
+// make equal button clickable with enter key.
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        equals.click();
+        
+    }
+});
